@@ -1,7 +1,7 @@
 :root {
     --main-color:#009F66;
     --accent-color: #CFDFD9;
-    --bg-color: ##F2F2F2;
+    --bg-color: #F2F2F2;
     --dark-text-color: #444444;
     --light-text-color: #FDFDFD;
     --grey-btn-color: rgba(7, 0, 0, 0.22);
@@ -26,6 +26,7 @@ body {
     font-family: 'Roboto', sans-serif;
     /* padding: 0px; */
     margin: 0px;
+    height: 100vh;
 }
 
 .scene-title-box {
@@ -33,7 +34,7 @@ body {
     width: 100%;
     /* height: 64px; */
 }
-
+ 
 .scene-title-text {
     color: var(--title-text-color);
     font-size: 32px;
@@ -153,4 +154,16 @@ body {
     /* height: 500px; */
     background-color: green;
     overflow-y: scroll;
+    margin-bottom: 40px;
+}
+
+.chat-input-bar {
+    position: absolute;
+    z-index: 5;
+    height: 40px;
+    width: 100vw;
+    bottom: 0;
+    background-color: var(--bg-color);
+    box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
 }
