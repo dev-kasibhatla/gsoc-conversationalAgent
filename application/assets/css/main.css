@@ -80,22 +80,40 @@ body {
 }
 
 /* Chat screen styles */
+.chat-bubble-parent-self {
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row-reverse;
+    float: right;
+}
+
+.chat-bubble-parent-they {
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+    float: left;
+}
+
 .chat-bubble-self {
     background-color: var(--chat-bubble-dark);
     color: var(--light-text-color);
+    float: right;
 }
 
 .chat-bubble-they {
     background-color: var(--chat-bubble-light);
     color: var(--dark-text-color);
+    float: left;
 }
 
 .chat-bubble-shape {
+    /* width: 80vw; */
+    flex-grow:0;
+    padding: 8px;
+    margin: 4px;
     border-radius: 8px;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 4px;
-    padding-bottom: 4px;
 }
 
 .info-bar{
@@ -112,7 +130,8 @@ body {
     width: 24px;
     margin-top: 8px;
     /* background-image: "../assets/svgs/info.svg"; */
-    display: inline;
+    /* display: inline; */
+    float: left;
 }
 
 .info-label-enabled {
@@ -152,18 +171,56 @@ body {
 .chat-box {
     flex-grow: 1;
     /* height: 500px; */
-    background-color: green;
+    /* background-color: green; */
     overflow-y: scroll;
     margin-bottom: 40px;
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .chat-input-bar {
     position: absolute;
-    z-index: 5;
+    z-index: 50;
     height: 40px;
     width: 100vw;
     bottom: 0;
     background-color: var(--bg-color);
-    box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.05);
-    border-radius: 5px;
+    box-shadow: 0px -5px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+.chat-input {
+    border-radius: 8px;
+    background-color: transparent;
+    border-color: var(--light-text-color);
+    width: calc(100vw - 20px - 75px);
+    height: 30px;
+}
+
+.chat-input-div {
+    height: 30px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100vw - 20px - 75px);
+    background-color: var(--light-text-color);
+    border-radius: 8px;
+    float: left;
+}
+
+.chat-btn {
+    height: 30px;
+    width: 30px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-top: 5px;
+    display: inline-block;
+    background-color: var(--grey-btn-color);
+    border-radius: 8px;
+}
+
+.chat-btn:hover {
+    background-color: var(--accent-color);
 }
