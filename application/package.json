@@ -36,8 +36,10 @@
     "electron": "^13.1.2"
   },
   "dependencies": {
+    "bootstrap": "^5.0.2",
     "deepspeech": "^0.9.3",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "jquery": "^3.6.0"
   },
   "config": {
     "forge": {
