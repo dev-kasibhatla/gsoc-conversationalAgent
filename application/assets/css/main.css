@@ -1,0 +1,156 @@
+:root {
+    --main-color:#009F66;
+    --accent-color: #CFDFD9;
+    --bg-color: ##F2F2F2;
+    --dark-text-color: #444444;
+    --light-text-color: #FDFDFD;
+    --grey-btn-color: rgba(7, 0, 0, 0.22);
+    --chat-bubble-dark: #009F66;
+    --chat-bubble-light: rgba(0, 159, 102, 0.1);
+    --text-hint-color: #A3A3A3;
+    --title-text-color: #009F66;
+    --subtitle-text-color: #A3A3A3;
+}
+/* Import styles of roboto fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+/* Global styles */
+
+html {
+    /* padding: 0px; */
+    /* margin: 0px; */
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Roboto', sans-serif;
+    /* padding: 0px; */
+    margin: 0px;
+}
+
+.scene-title-box {
+    background-color: var(--chat-bubble-light);
+    width: 100%;
+    /* height: 64px; */
+}
+
+.scene-title-text {
+    color: var(--title-text-color);
+    font-size: 32px;
+    font-weight: 700;
+    /* line-height: 64px; */
+    display: inline;
+}
+
+.scene-subtitle-text {
+    color: var(--subtitle-text-color);
+    font-size: 24px;
+    font-weight: 700;
+    /* line-height: 64px; */
+    display: inline;
+}
+
+/* Helper styles */
+
+.space-horizontal-5 {
+    padding-left: 5px;
+    /* background-color: pink; */
+    display: inline;
+}
+
+.space-horizontal-10 {
+    padding-left: 10px;
+    /* background-color: pink; */
+    display: inline;
+}
+
+.space-horizontal-20 {
+    padding-left: 20px;
+    /* background-color: pink; */
+    display: inline;
+}
+
+.space-vertical-10 {
+    height: 10px;
+}
+
+.space-vertical-20 {
+    height: 20px;
+}
+
+/* Chat screen styles */
+.chat-bubble-self {
+    background-color: var(--chat-bubble-dark);
+    color: var(--light-text-color);
+}
+
+.chat-bubble-they {
+    background-color: var(--chat-bubble-light);
+    color: var(--dark-text-color);
+}
+
+.chat-bubble-shape {
+    border-radius: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.info-bar{
+    background-color: var(--bg-color);
+    width: 100%;
+    /* height: 40px; */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    padding-top: 4px;
+}
+
+.info-label {
+    height: 24px;
+    width: 24px;
+    margin-top: 8px;
+    /* background-image: "../assets/svgs/info.svg"; */
+    display: inline;
+}
+
+.info-label-enabled {
+    /* line-height: 15px; */
+    font-size: 14px;
+    color: var(--title-text-color);
+    /* display: inline; */
+    font-weight: 600;
+    /* margin-top: 3px; */
+}
+
+.info-label-disabled {
+    /* line-height: 15px; */
+    font-size: 14px;
+    color: var(--title-text-color);
+    /* display: inline; */
+    font-weight: 600;
+    /* margin-top: 3px; */
+}
+
+.info-label-parent {
+    display: inline;
+    height: 30px;
+    width: 60%;
+    background-color: red;
+}
+
+.chat-area{
+    width: 100%;
+    height: 100%;
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    flex-flow: column;
+}
+
+.chat-box {
+    flex-grow: 1;
+    /* height: 500px; */
+    background-color: green;
+    overflow-y: scroll;
+}
