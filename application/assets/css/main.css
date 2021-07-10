@@ -218,9 +218,24 @@ body {
     margin-top: 5px;
     display: inline-block;
     background-color: var(--grey-btn-color);
-    border-radius: 8px;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.tts-icon {
+    background-image: url("../svgs/tts-icon.svg");
+}
+
+.asr-icon {
+    background-image: url("../svgs/asr-icon.svg");
 }
 
 .chat-btn:hover {
     background-color: var(--accent-color);
+    cursor: pointer;
+}
+
+.chat-btn-selected {
+    background-color: var(--main-color);
 }
