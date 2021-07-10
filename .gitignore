@@ -86,3 +86,13 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+app2/
+
+app
+
+.directory
+
+application/out/
+
+application/package-lock.json
