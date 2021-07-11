@@ -12,13 +12,43 @@
   <body>
     <!-- Nav bar -->
     <div class="scene-sidenav-vertical">
-      <div class="nav-icon-template nav-icon-ham"></div>
+      <div class="nav-icon-template nav-icon-ham" onclick="openNav(1)"></div>
       <div class="nav-icon-chat nav-icon-template nav-selected"></div>
-      <div class="nav-icon-settings nav-icon-template"></div>
-      <div class="nav-icon-diagnostics nav-icon-template"></div>
+      <div class="nav-icon-settings nav-icon-template" onclick="navigatoTo(NAV_SETTINGS)"></div>
+      <div class="nav-icon-diagnostics nav-icon-template" onclick="navigatoTo(NAV_DIAGNOSTICS)"></div>
+      <div class="nav-icon-help nav-icon-template sidenav-element-bottom"></div>
     </div>
 
+    <div id = "sidenav" class="sidenav nav-z">
+      <div class="sidenav-element-no-hover sidenav-opened-text" name = "nav-text"> 
+        <div class="sidenav-opened-icon-hover nav-icon-close " onclick="closeNav(1)"></div>
+        Navigate
+      </div>
 
+      <div class="sidenav-element sidenav-opened-text nav-selected" 
+      name = "nav-text"> 
+        <div class="sidenav-opened-icon nav-icon-chat "></div>
+        Chat
+      </div>
+
+      <div class="sidenav-element sidenav-opened-text" name = "nav-text" 
+      onclick="navigatoTo(NAV_SETTINGS)"> 
+        <div class="sidenav-opened-icon nav-icon-settings "></div>
+        Preferences
+      </div>
+
+      <div class="sidenav-element sidenav-opened-text nav-z" name = "nav-text" 
+      onclick="navigatoTo(NAV_DIAGNOSTICS)"> 
+        <div class="sidenav-opened-icon nav-icon-diagnostics "></div>
+        Diagnostics
+      </div>
+
+      <div class="sidenav-element-bottom sidenav-element sidenav-opened-text" name = "nav-text"> 
+        <div class="sidenav-opened-icon nav-icon-help "></div>
+        Help and feedback
+      </div>
+
+    </div>
 
     <div class="chat-area">
       <div class="scene-title-box">
@@ -116,5 +146,6 @@
     </script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- <script src = "index.js"></script> -->
+    <script src = "nav.js"></script>
   </body>
 </html>

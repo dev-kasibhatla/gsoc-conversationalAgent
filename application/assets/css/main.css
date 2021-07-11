@@ -251,6 +251,8 @@ body {
     background-color: var(--main-color);
     z-index: 10;
     position: fixed;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 .nav-icon-template {
@@ -273,6 +275,11 @@ body {
     margin-top: 16px;
 }
 
+.nav-icon-close {
+    background-image: url("../svgs/nav-close.svg");
+    margin-top: 16px;
+}
+
 .nav-icon-chat {
     background-image: url("../svgs/nav-chat.svg");
 }
@@ -285,6 +292,95 @@ body {
     background-image: url("../svgs/nav-diagnostics.svg");
 }
 
+.nav-icon-help {
+    background-image: url("../svgs/nav-help.svg");
+}
+
+.sidenav-opened {
+    width: 300px;
+}
+
+.sidenav {
+    height: 100vh;
+    width: 0px;
+    position: fixed;
+    background-color: var(--main-color);
+    transition: 0.3s;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.nav-z {
+    z-index: -15;
+}
+
+.sidenav-element {
+    height: 60px;
+    width: 98%;
+    margin-left: 0.8%;
+    margin-top: 8px;
+    /* background-color: var(--grey-btn-color); */
+    border-radius: 8px;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.sidenav-element:hover {
+    cursor: pointer;
+    background-color: var(--grey-btn-color);
+}
+
 .nav-selected {
     background-color: var(--grey-btn-color);
+}
+
+.nav-selected:hover {
+    cursor: default;
+}
+
+.sidenav-element-no-hover {
+    height: 60px;
+    width: 98%;
+    margin-left: 0.8%;
+    margin-top: 16px;
+    /* background-color: var(--grey-btn-color); */
+}
+
+.sidenav-opened-text {
+    color: var(--light-text-color);
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.sidenav-opened-icon {
+    float: left;
+    height: 60px;
+    width: 60px;
+    margin-top: 0px;
+    margin-right: 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-color: var(--grey-btn-color); */
+}
+
+.sidenav-opened-icon-hover {
+    float: left;
+    height: 60px;
+    width: 60px;
+    margin-top: 0px;
+    margin-right: 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 8px;
+}
+
+.sidenav-opened-icon-hover:hover {
+    cursor: pointer;
+    background-color: var(--grey-btn-color);
+}
+
+.sidenav-element-bottom {
+    position: absolute;
+    bottom: 8px;
 }
