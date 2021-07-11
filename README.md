@@ -13,12 +13,16 @@ Leveraging various conversational skills provided by the chosen TTS engine like 
 ## Environment
 
 OS: Linux Lubuntu 18.04 (VM)
-RAM: 3GB
-NPM version
-Node version
-Electron version
 
-## Dependencies
+RAM: 3GB
+
+NPM version: 7.19.0
+
+Node version: v16.4.0
+
+Electron version: 13.1.6
+
+## Requirements
 
 Requires the following to be installed correctly.
  - [Robocomp](https://github.com/robocomp/robocomp)
@@ -42,4 +46,8 @@ Once you have the above environment set up, to install this project:
 `npm start`
 
 #### To create a release distributable we use electron-forge
-`npm run make`
+```
+npm run make
+cd out/make/x64
+sudo dpkg -i *.deb
+```
