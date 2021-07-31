@@ -1,7 +1,7 @@
 deployment="/home/robocomp/robocomp/components/robocomp-viriato/etcSim/deployment_GSoC_conversationalAgent.xml"
 echo "Starting con agent"
 python3 $(rcmanagersimple) $deployment
-
+echo "started launcher"
 # up IS
 # ip executive
 # mission
