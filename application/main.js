@@ -1,7 +1,12 @@
-const { app, BrowserWindow, Menu } = require('electron')
+const { app, BrowserWindow, Menu, ipcMain } = require('electron')
 const path = require('path')
 const url = require('url')
 const shell = require('electron').shell
+
+ipcMain.on( "AppState", ( event, globalVarValue ) => {
+  global.AppState = globalVarValue;
+} );
+
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -10,7 +15,8 @@ function createWindow () {
 	webPreferences: {
 	      preload: path.join(__dirname, 'src/preload.js'),
         nodeIntegration: true,
-        contextIsolation: false
+        contextIsolation: false,
+      enableRemoteModule: true
     }
   })
 
@@ -29,7 +35,11 @@ app.whenReady().then(() => {
 
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  
+    console.log('app.on() called')
+  })
+
+  app.on('session-created', function () {
+    console.log('session created')
   })
 })
 
