@@ -1,7 +1,7 @@
 console.log('nav js called');
 
 let printLogs = true;
-function logv(message) {
+export function logv(message) {
     if(printLogs) {
         console.log(message);
     }
