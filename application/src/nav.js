@@ -1,11 +1,6 @@
+const {logv} = require("./common");
 console.log('nav js called');
 
-let printLogs = true;
-export function logv(message) {
-    if(printLogs) {
-        console.log(message);
-    }
-}
 makeNamesTransparent(true);
 function openNav(navIndex) {
     makeNamesTransparent(false);
