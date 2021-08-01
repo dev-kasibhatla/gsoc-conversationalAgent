@@ -66,6 +66,8 @@ class ChatData {
         this.appState = getAppState();
         //set the changes this class makes
         this.appState.chatHistory = this.chatMessages;
+        logv('app state after chat module changed it:');
+        logv(this.appState);
         setAppState(this.appState);
     }
 
