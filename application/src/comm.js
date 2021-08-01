@@ -2,20 +2,43 @@
  * Communicated with the system using child process
  */
 
-const exec = require('child_process').exec;
+const {exec, execFile, spawn} = require('child_process');
 const axios = require('axios');
 const {logv} = require("./common");
 
 var statusRCRemoteServer = false, statusLauncher = false;
 
 function execute(command, callback) {
-    exec(command, (error, stdout, stderr) => { 
-        callback(stdout); 
-        logv('error in command');
-        logv(command);
-        logv(error);
-        logv(stderr);
+    let proc = exec(command, );
+    proc.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+        callback(data);
     });
+    proc.stderr.on('data',function(data){
+        logv(`${command} error:`);
+        logv(data.toString());
+    });
+    proc.on('exit',function(code){
+        logv(`${command} exited with ${code}`);
+    })
+}
+
+function executeFile(command, callback) {
+
+}
+
+function spawnProcess(command,callback) {
+    let proc = spawn(command);
+    proc.stdout.on('data', (data) => {
+        callback(data);
+    });
+    proc.stderr.on('data',function(data){
+        logv(`${command} error:`);
+        logv(data.toString());
+    });
+    proc.on('exit',function(code){
+        logv(`${command} exited with ${code}`);
+    })
 }
 
 /**
@@ -45,8 +68,6 @@ function initBasics() {
     execute(runLauncher,(output)=>{
         logv('output of starting launcher');
         logv(output);
-        //todo: how foolproof is this?
-
     });
     statusLauncher = true;
 }
@@ -83,6 +104,9 @@ async function sendPostRequest(urlPack,body) {
 class URLPack {
     //should be a const
     static baseUrl = 'http://localhost:5002/webhooks/rest/webhook/';
+    //specificworker.py line 150
+    static rasaBase = "http://localhost:5002/";
+    static actionsBase = "http://localhost:5055/";
     port = '0';
     url = "";
 
@@ -94,6 +118,8 @@ class URLPack {
 
 class URLProvider {
     static messageUrl = new URLPack(URLPack.baseUrl,'5002',);
+    static rasaUrl = new URLPack(URLPack.rasaBase,'5002',);
+    static actionUrl = new URLPack(URLPack.actionsBase,'5055',);
 }
 
 class Response {
@@ -129,6 +155,7 @@ class Response {
 
 module.exports = {
     execute,
+    // spawnProcess,
     initBasics,
     sendPostRequest,
     URLProvider,
