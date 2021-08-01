@@ -92,9 +92,16 @@
           </div>
         </div>
       </div>
-      
+
+
+      <div id = "start-chat-space">
+
+      </div>
   
       <div class="chat-box" id = "chat-box">
+        <div class="chat-label">
+          The chat has not begun
+        </div>
         <div class="chat-bubble-parent-they">
           <div class="chat-bubble-they chat-bubble-shape">
             Hi, how may I help you?
@@ -122,7 +129,7 @@
 
     <div class="chat-input-bar">
       <div class="chat-input-div">
-        <input placeholder="Start typing" class="chat-input form-control form-inline">
+        <input placeholder="Start typing" class="chat-input form-control form-inline" onkeydown="sendMessage(this)">
       </div>
       <div class="chat-btn asr-icon">
 
