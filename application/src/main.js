@@ -12,7 +12,14 @@ function getAppState() {
     logv(`App state: ${gv}`);
     if(gv === undefined){
         logv('app state was never set. setting it now');
-        setAppState(new AppState(false,[]));
+        setAppState(new AppState(
+            false,
+            [],
+            {
+                rasa: false,
+                action: false
+            },
+            ));
         //todo: super dangerous
         gv = getAppState();
     }
@@ -41,9 +48,15 @@ class AppState {
     appInitialised = false;
     //type Message
     chatHistory = [];
-    constructor(appInitialised, chatHistory) {
+    servers = {
+        rasa: false,
+        action: false
+    }
+    constructor(appInitialised, chatHistory, servers) {
+        logv('app state was constructed');
         this.appInitialised = appInitialised;
         this.chatHistory = chatHistory;
+        this.servers = servers;
     }
 }
 
