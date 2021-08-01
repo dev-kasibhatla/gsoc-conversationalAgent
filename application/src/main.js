@@ -4,7 +4,6 @@
 
 const {logv} = require("./common");
 const {initBasics} = require("./comm");
-const {ChatData} = require("./chatData");
 const { ipcRenderer, remote } = require( "electron" );
 
 function getAppState() {
@@ -13,7 +12,7 @@ function getAppState() {
     logv(`App state: ${gv}`);
     if(gv === undefined){
         logv('app state was never set. setting it now');
-        setAppState(new AppState(false));
+        setAppState(new AppState(false,[]));
         //todo: super dangerous
         gv = getAppState();
     }
@@ -27,19 +26,11 @@ function setAppState(state) {
     ipcRenderer.send( "AppState", state);
 }
 
-function startChat() {
-    logv('starting chat');
-    ChatData.startChat().then(function(res){
-        logv(res);
-    });
-}
-
 function initialiseApp() {
     console.log(remote);
     if(getAppState().appInitialised === false) {
         logv('app wasnt initialised. Starting it now');
         initBasics();
-        startChat();
         setAppState(new AppState(true));
     }else{
         logv('app already initialised. Not starting it again');
@@ -48,14 +39,17 @@ function initialiseApp() {
 
 class AppState {
     appInitialised = false;
-
-    constructor(appInitialised) {
+    //type Message
+    chatHistory = [];
+    constructor(appInitialised, chatHistory) {
         this.appInitialised = appInitialised;
+        this.chatHistory = chatHistory;
     }
 }
 
 module.exports = {
     initialiseApp,
     AppState,
-    setAppState
+    setAppState,
+    getAppState
 }
