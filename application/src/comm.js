@@ -3,7 +3,7 @@
  */
 
 const exec = require('child_process').exec;
-const request = require('request');
+const axios = require('axios');
 const {logv} = require("./common");
 
 var statusRCRemoteServer = false, statusLauncher = false;
@@ -56,17 +56,20 @@ async function sendPostRequest(urlPack,body) {
     logv(urlPack);
     //expecting a URLProvider object for url
     let completeUrl = `${urlPack.url}`;
+    logv(completeUrl);
+    logv(body);
     let options = {
-        'method': 'POST',
-        'url': completeUrl,
-        'headers': {
+        method: 'post',
+        url: completeUrl,
+        headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(body)
+        data : JSON.stringify(body)
     };
+
     try {
         //todo: errors are not getting caught
-        let response = await request(options);
+        let response = await axios(options);
         logv("response:");
         logv(response);
         return new Response(response,false);
@@ -95,19 +98,23 @@ class URLProvider {
 
 class Response {
     body="";
-    statusCode="";
+    statusCode=0;
     isError;
     error;
     response;
     constructor(response, error) {
+        logv(`Response constructor called with error ${error} ${response.status}`);
+        this.statusCode = response.status;
         if(error === false) {
-            if(response.body === undefined){
-                // logv('response is an error');
+            if(response.status !== 200){
+                logv('response is an error, couldnt find data');
                 error=true;
             }else {
                 logv('response is not an error');
                 this.response = response;
-                this.body = response.body;
+                this.body = response.data;
+                this.isError = false;
+                logv(`Response body:`);
                 logv(this.body);
             }
         }
@@ -115,11 +122,9 @@ class Response {
             logv('response is an error');
             this.error = response;
             logv(error);
+            this.isError=true;
         }
-        this.isError=true;
     }
-
-
 }
 
 module.exports = {
