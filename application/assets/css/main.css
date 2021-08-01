@@ -11,6 +11,9 @@
     --text-hint-color: #A3A3A3;
     --title-text-color: #009F66;
     --subtitle-text-color: #A3A3A3;
+    --main-light: rgba(0, 159, 102, 0.1);
+    --yellow-light: rgba(211, 173, 0, 0.23);
+    --red-light: rgba(201, 0, 0, 0.15);
 }
 /* Import styles of roboto fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap');
@@ -411,4 +414,42 @@ body {
 .sidenav-element-bottom {
     position: absolute;
     bottom: 8px;
+}
+
+/* Diagnostics page */
+.card-bg {
+    background: var(--yellow-light);
+    align-self: center;
+    padding: 16px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.card-click:hover{
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+    color: var(--title-text-color);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.refresh-servers-button {
+    align-self: flex-end;
+    vertical-align: center;
+    background: var(--main-light);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin: 8px;
+    width: min-content;
+}
+
+.refresh-servers-button:hover {
+    background: var(--main-color);
+    cursor: pointer;
+    color: var(--light-text-color);
 }
