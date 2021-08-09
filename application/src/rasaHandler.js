@@ -3,11 +3,18 @@ const {logv} = require("./common");
 const {execute, sendPostRequest, URLProvider} = require("./comm");
 const dgram = require('dgram');
 
+//RASA and Action server scripts
 const bashStartRasa = ". bash/startRasa.bash";
 const bashStartActions = ". bash/startActions.bash";
 const getRasaStatus = ". bash/getRasaStatus.bash";
 const bashKillRasa = ". bash/killRasa.bash";
 const bashKillAction = ". bash/killAction.bash";
+
+//RASA dialog scripts
+const bashRasaTrain = ". bash/rasaButtons/rasaTrain.bash";
+const bashRasaInteractive = ". bash/rasaButtons/startRasaInteractive.bash";
+const bashRasaShell = ". bash/rasaButtons/startRasaShell.bash";
+const bashRasaVisualise = ". bash/rasaButtons/startRasaVisualise.bash";
 
 
 const RASA_SERVER_UI_ID = "rasa-server-status";
@@ -163,6 +170,43 @@ class RasaHandler {
         }else{
             this.stopActionServer();
         }
+    }
+
+    //todo: stop using external terminal for these
+    static rasaTrainButton() {
+        logv('Rasa train initiated - Opening in external terminal');
+        execute(bashRasaTrain,(output)=>{
+            logv('output of starting rasa train');
+            logv(output);
+            this.getActionServerStatus();
+        });
+    }
+
+    static rasaInteractiveButton() {
+        logv('Rasa interactive initiated - Opening in external terminal');
+        execute(bashRasaInteractive,(output)=>{
+            logv('output of starting rasa interactive');
+            logv(output);
+            this.getActionServerStatus();
+        });
+    }
+
+    static rasaShellButton() {
+        logv('Rasa shell initiated - Opening in external terminal');
+        execute(bashRasaShell,(output)=>{
+            logv('output of starting rasa shell');
+            logv(output);
+            this.getActionServerStatus();
+        });
+    }
+
+    static rasaVisualiseButton() {
+        logv('Rasa Visualise initiated - Opening in external terminal');
+        execute(bashRasaVisualise,(output)=>{
+            logv('output of starting rasa Visualise');
+            logv(output);
+            this.getActionServerStatus();
+        });
     }
 }
 
