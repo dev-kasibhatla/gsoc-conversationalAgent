@@ -15,3 +15,19 @@ function actionClick() {
     logv("action node clicked");
     RasaHandler.actionNodeClicked();
 }
+
+function rasaTrain() {
+    RasaHandler.rasaTrainButton();
+}
+
+function rasaInteractive() {
+    RasaHandler.rasaInteractiveButton();
+}
+
+function rasaShell() {
+    RasaHandler.rasaShellButton();
+}
+
+function rasaVisualise(){
+    RasaHandler.rasaVisualiseButton();
+}
