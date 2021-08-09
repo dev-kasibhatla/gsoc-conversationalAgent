@@ -178,7 +178,7 @@ body {
 .info-label-disabled {
     /* line-height: 15px; */
     font-size: 14px;
-    color: var(--title-text-color);
+    color: var(--grey-btn-color);
     /* display: inline; */
     font-weight: 600;
     /* margin-top: 3px; */
@@ -452,4 +452,24 @@ body {
     background: var(--main-color);
     cursor: pointer;
     color: var(--light-text-color);
+}
+
+.rasa-buttons {
+    /*width: 100%;*/
+    vertical-align: center;
+    background: var(--main-light);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin: 4px;
+}
+
+.rasa-buttons:hover {
+    background: var(--main-color);
+    cursor: pointer;
+    color: var(--light-text-color);
+}
+
+.padding-0{
+    padding: 0;
 }
