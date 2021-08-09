@@ -3,7 +3,7 @@
  */
 
 const {logv} = require("./common");
-const {initBasics} = require("./comm");
+const {initBasics, execute} = require("./comm");
 const { ipcRenderer, remote } = require( "electron" );
 
 function getAppState() {
@@ -44,6 +44,7 @@ function initialiseApp() {
     }
 }
 
+const CHAT_STATE_FILE = "$ROBOCOMP/components/robocomp-viriato/components/conversationalAgent/newUiConnection.txt"
 class AppState {
     appInitialised = false;
     //type Message
@@ -52,11 +53,22 @@ class AppState {
         rasa: false,
         action: false
     }
+    static chatState = false;
     constructor(appInitialised, chatHistory, servers) {
         logv('app state was constructed');
         this.appInitialised = appInitialised;
         this.chatHistory = chatHistory;
         this.servers = servers;
+        AppState.getChatState();
+    }
+
+    static getChatState() {
+        //read file
+        // logv('reading hc state');
+        execute(`cat ${CHAT_STATE_FILE}`,function (output){
+           AppState.chatState = output == 1;
+           // logv(`chat needs to be active: ${AppState.chatState}, ${output}`);
+        });
     }
 }
 
