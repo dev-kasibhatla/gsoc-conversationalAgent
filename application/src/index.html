@@ -78,13 +78,13 @@
             <div class="col-11">
               <div class="container-fluid">
                 <div class="row">
-                  <div class=" col-xs-11 info-label-enabled">
-                    Text to speech is enabled
+                  <div class=" col-xs-11 info-label-disabled" id="tts-label">
+                    Text to speech is disabled
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-xs-11 info-label-enabled">
-                    Speech recognition is enabled
+                  <div class="col-xs-11 info-label-disabled" id="asr-label">
+                    Speech recognition is disabled
                   </div>
                 </div>
               </div>
@@ -131,10 +131,8 @@
       <div class="chat-input-div">
         <input placeholder="Start typing" class="chat-input form-control form-inline" onkeydown="sendMessage(this)">
       </div>
-      <div class="chat-btn asr-icon">
-
-      </div>
-      <div class="chat-btn tts-icon"></div>
+      <div class="chat-btn asr-icon" id="asr-icon"></div>
+      <div class="chat-btn tts-icon" id ="tts-icon" onclick="toggleTTS()"></div>
       
     </div>
 
