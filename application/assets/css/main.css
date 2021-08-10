@@ -14,6 +14,7 @@
     --main-light: rgba(0, 159, 102, 0.1);
     --yellow-light: rgba(211, 173, 0, 0.23);
     --red-light: rgba(201, 0, 0, 0.15);
+    --light-bright: rgba(255,255,255,255);
 }
 /* Import styles of roboto fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap');
@@ -426,9 +427,67 @@ body {
     margin-bottom: 8px;
 }
 
+.card-bg-normal {
+    background: var(--main-light);
+    align-self: center;
+    padding: 16px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.card-bg-settings {
+    background: var(--light-bright);
+    align-self: center;
+    padding: 16px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.list-title-settings{
+    color: var(--dark-text-color);
+    size: 13px;
+    font-weight: bold;
+    padding: 4px 4px;
+}
+
+.dropdown-settings{
+    background: var(--main-light);
+    /*height: 20px;*/
+    width: 100%;
+    text-align: left;
+    font-size: 12px;
+}
+
+.dropdown-menu {
+    width: 60%;
+}
+
+.dropdown-item{
+    width: 100%;
+    /*height: 15px;*/
+    font-size: 13px;
+}
+
+.dropdown-item:hover{
+    background: var(--main-light);
+    cursor: pointer;
+}
+
+.dropdown-item:active{
+    background: var(--main-color);
+    cursor: pointer;
+    color: var(--light-text-color);
+}
+
+.red{
+    background: red;
+}
+
 .card-click:hover{
     cursor: pointer;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
 }
 
 .card-title {
