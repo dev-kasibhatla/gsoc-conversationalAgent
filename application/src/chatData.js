@@ -137,6 +137,7 @@ class ChatData {
                 for (let mess of response.body){
                     let message = new Message(SENDER_BOT,mess);
                     this.addNewMessage(message);
+                    Speaker.speak(message);
                 }
             }else{
                 //construct a message
@@ -173,6 +174,7 @@ class ChatData {
             if(messageCount>0){
                 for (let mess of response.body){
                     let message = new Message(SENDER_BOT,mess);
+                    Speaker.speak(message);
                     this.addNewMessage(message);
                 }
             }else{
@@ -407,6 +409,8 @@ class Speaker {
     }
 
     static speak(text) {
+        //don't speak if speaker disabled
+        if(!Speaker.SPEAKER_ACTIVE) return;
         logv(`speaking ${text}`);
         if(Speaker.mimicIsInstalled){
             //generate command
