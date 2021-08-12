@@ -1,4 +1,5 @@
 const {Speaker} = require("./chatData");
+const {execute} = require("./comm");
 
 function setNewVoice(voiceIndex){
     logv('setting voice index to '+voiceIndex.toString());
@@ -45,6 +46,8 @@ const voiceDropDownOption = '<div class="dropdown-item" onclick="setNewVoice(vid
     '                    %option' +
     '                  </div>';
 
+const installMimicSectionId = "installMimicSection";
+
 function setUI() {
     let dropDownButton = document.getElementById(voiceDropDownId);
     dropDownButton.innerText = Speaker.mimicVoices[Speaker.SETTINGS.VOICE];
@@ -70,6 +73,23 @@ function setUI() {
     speedLabel.innerText = (1/Speaker.SETTINGS.SPEED) + 'x';
     let speedSlider = document.getElementById(speedSliderId);
     speedSlider.value = 1/(Speaker.SETTINGS.SPEED);
+
+    if(Speaker.mimicIsInstalled) {
+        let installMimicSection = document.getElementById(installMimicSectionId);
+        installMimicSection.remove();
+    }
+
+}
+
+function installMimic() {
+    logv('installing mimic');
+    if(Speaker.mimicIsInstalled){
+       alert('mimic is already installed');
+       return;
+    }
+    execute('gnome-terminal -e "sh ../install-mimic.sh"',function(output){
+        logv(output);
+    });
 }
 
 function playAudioSample() {
