@@ -23,7 +23,9 @@ const speedSliderId = "settingsSpeedRange";
 function setSpeakerSpeed(speed) {
     logv('speed is');
     logv(speed.value);
-    Speaker.SETTINGS.SPEED = speed.value;
+    //range is from 0.25 to 2.5
+    //at 1 -> speed is normal
+    Speaker.SETTINGS.SPEED = 1/speed.value;
     Speaker.saveSettings();
     setUI();
 }
@@ -65,9 +67,9 @@ function setUI() {
     pitchSlider.value = Speaker.SETTINGS.PITCH;
 
     let speedLabel = document.getElementById(speedLabelId);
-    speedLabel.innerText = Speaker.SETTINGS.SPEED + 'x';
+    speedLabel.innerText = (1/Speaker.SETTINGS.SPEED) + 'x';
     let speedSlider = document.getElementById(speedSliderId);
-    speedSlider.value = Speaker.SETTINGS.SPEED;
+    speedSlider.value = 1/(Speaker.SETTINGS.SPEED);
 }
 
 function playAudioSample() {

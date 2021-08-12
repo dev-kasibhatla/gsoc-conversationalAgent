@@ -419,7 +419,7 @@ class Speaker {
         logv(`speaking ${text}`);
         if(Speaker.mimicIsInstalled){
             //generate command
-            let command = `mimic -t ${text} -voice ${Speaker.mimicVoices[Speaker.SETTINGS.VOICE]} --setf duration_stretch=${Speaker.SETTINGS.SPEED} --setf int_f0_target_mean=${Speaker.SETTINGS.PITCH}`;
+            let command = `mimic -t "${text}" -voice ${Speaker.mimicVoices[Speaker.SETTINGS.VOICE]} --setf duration_stretch=${Speaker.SETTINGS.SPEED} --setf int_f0_target_mean=${Speaker.SETTINGS.PITCH}`;
             logv(command);
             execute(command,function(raw){
             });
