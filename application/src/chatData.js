@@ -280,6 +280,11 @@ class Speaker {
         Speaker.loadSettings();
     }
 
+    static initFromSettings() {
+        Speaker.isMimicInstalled();
+        Speaker.loadSettings();
+    }
+
     static SPEAKER_ACTIVE = false;
 
     static appState;
@@ -417,7 +422,6 @@ class Speaker {
             let command = `mimic -t ${text} -voice ${Speaker.mimicVoices[Speaker.SETTINGS.VOICE]} --setf duration_stretch=${Speaker.SETTINGS.SPEED} --setf int_f0_target_mean=${Speaker.SETTINGS.PITCH}`;
             logv(command);
             execute(command,function(raw){
-
             });
         }else{
             logv('mimic is not installed, turning off tts');

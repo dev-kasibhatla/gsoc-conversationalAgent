@@ -496,6 +496,7 @@ body {
     font-weight: bold;
 }
 
+
 .refresh-servers-button {
     align-self: flex-end;
     vertical-align: center;
@@ -513,6 +514,15 @@ body {
     color: var(--light-text-color);
 }
 
+.play-audio-button {
+    width: 90%;
+    font-size: 12px;
+    height: min-content;
+    margin-right: 16px;
+    padding: 4px 16px;
+    text-align: center;
+}
+
 .rasa-buttons {
     /*width: 100%;*/
     vertical-align: center;
@@ -523,6 +533,48 @@ body {
     margin: 4px;
 }
 
+.play-sample-text{
+    padding: 0;
+    display: inline-block;
+    margin-bottom: 0px;
+    /*background: red;*/
+    vertical-align: center;
+    /*line-height: 15px;*/
+}
+
+.play-img-inline {
+    display: inline-table;
+    width: 15px;
+    height: 15px;
+    /*background-color: red;*/
+    background-image: url("../svgs/play.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 12px;
+    margin-top: 4px;
+}
+
+.settings-range{
+    height: 25px;
+}
+
+.settings-range::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: var(--main-color);
+    cursor: pointer;
+}
+
+.settings-range::-webkit-slider-thumb:hover{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
 .rasa-buttons:hover {
     background: var(--main-color);
     cursor: pointer;
@@ -531,4 +583,8 @@ body {
 
 .padding-0{
     padding: 0;
+}
+
+.margin-0{
+    margin: 0;
 }
