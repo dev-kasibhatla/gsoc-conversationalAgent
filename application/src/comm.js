@@ -20,7 +20,7 @@ function execute(command, callback) {
     });
     proc.on('exit',function(code){
         logv(`${command} exited with ${code}`);
-    })
+    });
 }
 
 function executeFile(command, callback) {

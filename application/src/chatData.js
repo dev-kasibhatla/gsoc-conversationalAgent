@@ -429,9 +429,119 @@ class Speaker {
     }
 }
 
+class ASR {
+    static ASR_ACTIVE = false;
+
+    static appState;
+    static voskInstalled=false;
+
+    static init() {
+        ASR.isVoskInstalled();
+        setTimeout(function(){
+            ASR.voskInstalled = ASR.voskInstalled1 && ASR.voskInstalled2;
+            ASR.loadSettings();
+        }, 1000);
+    }
+
+    static saveSettings() {
+        // logv(getAppState());
+        ASR.appState = getAppState();
+        AppState.getChatState();
+        logv('fetched app state:');
+        logv(ASR.appState);
+        logv(typeof this.appState);
+        ASR.appState.ASR = ASR.ASR_ACTIVE;
+        setAppState(ASR.appState);
+        //saving preferences
+        logv('saved ASR settings to global state')
+    }
+
+    static loadSettings() {
+        ASR.appState = getAppState();
+        AppState.getChatState();
+        logv('fetched app state:');
+        logv(ASR.appState);
+        logv(typeof this.appState);
+        ASR.ASR_ACTIVE = ASR.appState.ASR;
+        if(ASR.ASR_ACTIVE === undefined){
+            ASR.ASR_ACTIVE = false;
+        }
+        //get settings from file
+        ASR.updateUI();
+    };
+
+    static voskInstalled1 = false;
+    static voskInstalled2 = false;
+    static isVoskInstalled() {
+        execute(bashCheckVoskModule,function(output){
+           logv('checked vosk:');
+           logv(output);
+           if(output == 1){
+               ASR.voskInstalled1 = true;
+           }else{
+               logv('vosk module check failed');
+               ASR.voskInstalled1 = false;
+           }
+        });
+
+        execute(bashCheckVoskPath,function(output){
+            logv('checked vosk path:');
+            logv(output);
+            if(output.length>5){
+                ASR.voskInstalled2 = true;
+            }else{
+                logv('vosk patch check failed');
+                ASR.voskInstalled2 = false;
+            }
+        });
+    }
+
+    static updateUI() {
+        //read ASR state
+        let element = document.getElementById('asr-label');
+        let elementIcon = document.getElementById('asr-icon');
+        if(ASR.ASR_ACTIVE){
+            if(!ASR.voskInstalled) {
+                logv('vosk is not installed, so not turning on asr.');
+                alert('Vosk is not installed. You can find installation instructions by going to the settings');
+                ASR.ASR_ACTIVE = false;
+                //dangerous, but straight forward
+                ASR.updateUI();
+                return;
+            }
+            //change class
+            //asr label
+            element.classList.remove("info-label-disabled");
+            element.classList.add("info-label-enabled");
+            //asr icon
+            elementIcon.classList.add('chat-btn-selected');
+            //replace text
+            element.innerText = element.innerText.replace("disabled","enabled");
+        }else{
+            //change class
+            //asr label
+            element.classList.remove("info-label-enabled");
+            element.classList.add("info-label-disabled");
+            //asr icon
+            elementIcon.classList.remove('chat-btn-selected');
+            //replace text
+            element.innerText = element.innerText.replace("enabled","disabled");
+        }
+    }
+
+    static toggleASRState() {
+        ASR.ASR_ACTIVE = !ASR.ASR_ACTIVE;
+        ASR.updateUI();
+        ASR.saveSettings();
+    }
+}
+const bashCheckVoskModule = "python3 bash/checkvosk.py";
+const bashCheckVoskPath = "echo $VOSK";
+
 module.exports = {
     ChatData,
     Message,
+    ASR,
     SENDER_UNKNOWN,
     Speaker
 }
