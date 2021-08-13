@@ -3,7 +3,7 @@ const electron = require('electron')
 const path = require('path')
 // const {AppState} = require("../main");
 const {initialiseApp} = require("./main");
-const {ChatData, Speaker} = require("./chatData");
+const {ChatData, Speaker, ASR} = require("./chatData");
 // const {logv} = require("./common");
 //logv already imported in nav.js
 // const {logv} = require("./common");
@@ -24,7 +24,7 @@ if(!AppState.appInitialised) {
 initialiseApp();
 ChatData.init();
 Speaker.init();
-
+ASR.init();
 
 function startChatButton() {
     logv('starting chat');
@@ -50,4 +50,8 @@ function sendMessage(textBox) {
  */
 function toggleTTS() {
     Speaker.toggleSpeakerState();
+}
+
+function toggleASR() {
+    ASR.toggleASRState();
 }
