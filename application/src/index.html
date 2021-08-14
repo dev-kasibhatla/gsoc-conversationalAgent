@@ -14,6 +14,7 @@
     <div class="scene-sidenav-vertical">
       <div class="nav-icon-template nav-icon-ham" onclick="openNav(1)"></div>
       <div class="nav-icon-chat nav-icon-template nav-selected"></div>
+      <div class="nav-icon-interactive nav-icon-template" onclick="navigatoTo(NAV_RASA)"></div>
       <div class="nav-icon-settings nav-icon-template" onclick="navigatoTo(NAV_SETTINGS)"></div>
       <div class="nav-icon-diagnostics nav-icon-template" onclick="navigatoTo(NAV_DIAGNOSTICS)"></div>
       <div class="nav-icon-help nav-icon-template sidenav-element-bottom"></div>
@@ -29,6 +30,12 @@
       name = "nav-text"> 
         <div class="sidenav-opened-icon nav-icon-chat "></div>
         Chat
+      </div>
+
+      <div class="sidenav-element sidenav-opened-text"
+           onclick="navigatoTo(NAV_RASA)" name = "nav-text">
+        <div class="sidenav-opened-icon nav-icon-interactive "></div>
+        RASA Interactive
       </div>
 
       <div class="sidenav-element sidenav-opened-text" name = "nav-text" 

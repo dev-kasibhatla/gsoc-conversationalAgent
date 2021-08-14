@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;**script-src 'self' http://onlineerp.solution.quebec 'unsafe-inline' 'unsafe-eval';** "> -->
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    <link rel="stylesheet" href="../assets/css/main.css">
+    <title>Diagnostics - Conversational Agent</title>
+</head>
+<body>
+<!-- Nav bar -->
+<div class="scene-sidenav-vertical">
+    <div class="nav-icon-template nav-icon-ham" onclick="openNav(1)"></div>
+    <div class="nav-icon-chat nav-icon-template" onclick="navigatoTo(NAV_CHAT)"></div>
+    <div class="nav-icon-interactive nav-icon-template nav-selected" ></div>
+    <div class="nav-icon-settings nav-icon-template" onclick="navigatoTo(NAV_SETTINGS)"></div>
+    <div class="nav-icon-diagnostics nav-icon-template" onclick="navigatoTo(NAV_DIAGNOSTICS)"></div>
+    <div class="nav-icon-help nav-icon-template sidenav-element-bottom"></div>
+</div>
+
+<div id = "sidenav" class="sidenav nav-z">
+    <div class="sidenav-element-no-hover sidenav-opened-text" name = "nav-text">
+        <div class="sidenav-opened-icon-hover nav-icon-close " onclick="closeNav(1)"></div>
+        Navigate
+    </div>
+
+    <div class="sidenav-element sidenav-opened-text"
+         name = "nav-text" onclick="navigatoTo(NAV_CHAT)">
+        <div class="sidenav-opened-icon nav-icon-chat "></div>
+        Chat
+    </div>
+
+    <div class="sidenav-element sidenav-opened-text nav-selected"  name = "nav-text">
+        <div class="sidenav-opened-icon nav-icon-interactive" ></div>
+        RASA Interactive
+    </div>
+
+    <div class="sidenav-element sidenav-opened-text" name = "nav-text"
+         onclick="navigatoTo(NAV_SETTINGS)">
+        <div class="sidenav-opened-icon nav-icon-settings "></div>
+        Preferences
+    </div>
+
+    <div class="sidenav-element sidenav-opened-text nav-z  " name = "nav-text">
+        <div class="sidenav-opened-icon nav-icon-diagnostics "></div>
+        Diagnostics
+    </div>
+
+    <div class="sidenav-element-bottom sidenav-element sidenav-opened-text" name = "nav-text">
+        <div class="sidenav-opened-icon nav-icon-help "></div>
+        Help and feedback
+    </div>
+
+</div>
+
+<div class="chat-area">
+    <div class="scene-title-box">
+        <div class="space-horizontal-20"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="scene-title-text">
+                        Conversational Agent
+                    </div>
+                    <div class="scene-subtitle-text">
+                        RASA Interactive
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="space-horizontal-5"></div>
+
+    </div>
+
+    <!-- Actual content area -->
+    <div class="chat-box">
+
+
+    </div>
+</div>
+<script src="./renderer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src = "nav.js"></script>
+</body>
+</html>

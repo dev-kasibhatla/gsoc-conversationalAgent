@@ -29,7 +29,7 @@ function makeNamesTransparent(should) {
     }
 }
 
-const NAV_CHAT = 0, NAV_SETTINGS=1, NAV_DIAGNOSTICS=2, NAV_HELP=3;
+const NAV_CHAT = 0, NAV_SETTINGS=1, NAV_DIAGNOSTICS=2, NAV_HELP=3, NAV_RASA=4;
 
 function navigatoTo(navIndex) {
     closeNav(navIndex);
@@ -45,7 +45,11 @@ function navigatoTo(navIndex) {
         case NAV_DIAGNOSTICS:
             logv('navigating to diagnostics page');
             location.replace("diagnostics.html");
-            break;           
+            break;
+        case NAV_RASA:
+            logv('navigating to rasa page');
+            location.replace("rasainteractive.html");
+            break;
         default:
             logv('unknown navigation index '+navIndex);
             break;

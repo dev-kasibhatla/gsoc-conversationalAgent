@@ -324,6 +324,10 @@ body {
     background-image: url("../svgs/nav-diagnostics.svg");
 }
 
+.nav-icon-interactive {
+    background-image: url("../svgs/nav-rasa.svg");
+}
+
 .nav-icon-help {
     background-image: url("../svgs/nav-help.svg");
 }
