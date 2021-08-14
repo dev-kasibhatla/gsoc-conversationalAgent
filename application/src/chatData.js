@@ -3,7 +3,8 @@ const {sendPostRequest} = require("./comm");
 const {logv} = require("./common");
 const {getAppState, setAppState, AppState} = require("./main");
 const fs = require('fs')
-
+const {exec,spawn, spawnSync} = require('child_process');
+const stream = require('stream');
 
 const CHAT_BOX_ID = "chat-box", START_BUTTON_SPACE = "start-chat-space";
 
@@ -440,6 +441,7 @@ class ASR {
         setTimeout(function(){
             ASR.voskInstalled = ASR.voskInstalled1 && ASR.voskInstalled2;
             ASR.loadSettings();
+            ASR.startASR();
         }, 1000);
     }
 
@@ -517,6 +519,10 @@ class ASR {
             elementIcon.classList.add('chat-btn-selected');
             //replace text
             element.innerText = element.innerText.replace("disabled","enabled");
+
+            //put asr txt in box
+            let textBox = document.getElementById("chatInputBox");
+            textBox.value = ASR.currentString;
         }else{
             //change class
             //asr label
@@ -529,11 +535,116 @@ class ASR {
         }
     }
 
+
     static toggleASRState() {
         ASR.ASR_ACTIVE = !ASR.ASR_ACTIVE;
         ASR.updateUI();
         ASR.saveSettings();
+        ASR.startASR();
     }
+
+    static currentString = "";
+
+    static ASRProcess;
+    static ASRProcessActive=false;
+    static ASRProcessInitialised = false;
+    static inputStream;
+    //manage our own ASR process
+    static startASR() {
+        if(!ASR.ASR_ACTIVE){
+            try{
+                logv('trying to kill asr process');
+                logv(ASR.ASRProcess.pid);
+                // ASR.ASRProcess.stdin.write('');
+                ASR.inputStream.push('SIGINT');
+                ASR.inputStream.push(null);
+                // ASR.inputStream.flush();
+                ASR.inputStream.pipe(ASR.ASRProcess.stdin);
+                /*ASR.ASRProcess.stdin.setEncoding('utf8');
+                ASR.ASRProcess.stdin.write('SIGINT');
+                ASR.ASRProcess.stdin.write('\n');
+                ASR.ASRProcess.stdin.end();
+                ASR.ASRProcess.kill("SIGINT");
+                ASR.ASRProcess.kill("SIGTERM");
+                process.kill(ASR.ASRProcess.pid, 'SIGINT');*/
+                ASR.ASRProcess.kill("SIGTERM");
+                ASR.ASRProcess.kill("SIGINT");
+                ASR.ASRProcess.kill();
+                execute('echo 1 > $VOSK/python/example/shouldExit',function(){});
+            }catch(e){
+                logv('failed killing ASR process');
+                logv(e);
+            }
+            return;
+        }
+        console.log( process.env.PATH );
+        execute('echo 0 > $VOSK/python/example/shouldExit',function(){});
+        //listen
+        // ASR.ASRProcess = exec('cd $VOSK/python/example && python3 $VOSK/python/example/test_microphone.py');
+        // ASR.ASRProcess = exec('. bash/asr/startasr.bash');
+        ASR.ASRProcess = spawn('bash', ['bash/asr/startasr.bash'], {detached:false, shell:true});
+        // ASR.ASRProcess = spawn('python3', ['bash/asr/pytestcom.py'], {detached:false, shell:true});
+        // ASR.ASRProcess = spawn('which',['bash']);
+        ASR.ASRProcessInitialised = false;
+        ASR.ASRProcessActive = true;
+        ASR.ASRProcess.stdout.setEncoding('utf8');
+        logv(stream);
+        ASR.inputStream = new stream.Readable();
+        ASR.ASRProcess.stdout.on('data', (data) => {
+            if(data.includes('partial') || data.includes('text')) {
+                ASR.ASRProcessInitialised=true;
+                //count occurences
+                data = data.toString();
+                data.replaceAll('\n',',\n');
+                let js = JSON.parse(data);
+                if(js.partial !== undefined){
+                    if(js.partial.length>0){
+                        if(js.partial.length>ASR.currentString)
+                            ASR.currentString = js.partial;
+                        else
+                            ASR.currentString += js.partial;
+                    }
+                }
+                if(js.text !== undefined){
+                    if(js.text.length>0){
+                        ASR.currentString = js.text;
+                    }
+                }
+                logv(ASR.currentString);
+                // ASR.ASRProcess.stdout.flush();
+                ASR.updateUI();
+            }else{
+                logv('ASR spawn response:');
+                logv(data.toString());
+            }
+        });
+        ASR.ASRProcess.stderr.on('data',function(data){
+            logv(data.toString());
+        });
+        ASR.ASRProcess.on('exit',function(code){
+            logv('asr was killed');
+            ASR.ASRProcessInitialised = false;
+            ASR.ASRProcessActive = false;
+            ASR.ASR_ACTIVE = false;
+            ASR.saveSettings();
+            ASR.updateUI();
+        });
+
+        ASR.ASRProcess.on('close', (code) => {
+            console.log(`ASR process exited with code ${code}`);
+        });
+
+        ASR.ASRProcess.on('SIGINT', () =>
+        {
+            logv('ASR process received SIGINT');
+        })
+    }
+
+    static stopASR() {
+
+    }
+
+
 }
 const bashCheckVoskModule = "python3 bash/checkvosk.py";
 const bashCheckVoskPath = "echo $VOSK";
