@@ -96,3 +96,5 @@ app
 application/out/
 
 application/package-lock.json
+
+application/bash/asr/pytestcom.py
