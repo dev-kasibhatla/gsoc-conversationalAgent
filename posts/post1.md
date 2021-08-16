@@ -1,7 +1,8 @@
-```markdown
 # GSoC'21 RoboComp project: Graphical user interface for affective human-robot interaction
 
 19th June, 2021
+
+
 
 ## About me
 
@@ -16,5 +17,4 @@ Interaction of a robot with the operator (human) is an important and daunting ta
 This application abstracts all the CLI interaction with the conversationalAgent to provide a chat-like experience with some advanced capabilities like Text-to-Speech, Speech-to-Text and language translations.
 The app would support open source free-to-use Text to Speech engine - Mycroft AI’s Mimic. Combining such a TTS engine with a translation engine can enable the robot to converse in any of the given languages with the user. 
 For Speech to Text, I am running tests on Mozilla’s deepspeech. I like their Common Voice initiative. Another advantage of deepspeech is that it has pre-trained models that can run offline.
-```
 
