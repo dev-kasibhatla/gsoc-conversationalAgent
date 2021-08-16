@@ -58,3 +58,79 @@ Fig: Collapsed navigation bar
 
 #### Chat
 
+There are primarily two kinds of chats we observe on a regular basis:
+
+1. Chats that look like a log. These make more sense in group chats with a nearly equal amount of particiaption from everyone.
+
+   Example: Discord
+
+   ![img](post3.assets/Screen-Shot-2020-06-25-at-2.45.44-PM-1024x652.png)
+
+
+
+2. Chats that look like a conversation. These make more sense when 2 people are talking, or 2 entities are talking. Like in our case, where a robot and a human have a conversation.
+
+   Example: Telegram
+
+   ![Telegram](post3.assets/image-1562742442995-6474e4cf4325101c9b5656e36ca84658.png)
+
+I chose choice 2 for the reasons explained above.
+
+Chat also has some other features, apart from text exchange. It lets the user listen to messages out loud. For that, there is a Text-to-speech icon. When text to speech is active, the button colour changes to the app's primary colour (green) as a visual indication. A label also appears on the top saying text-to-speech is active.
+
+The same philosphy has been followed for speech-to-text as well.
+
+
+
+#### Preferences
+
+There will be a preferences section in the app to configure some things. This includes some paths that are required, settings for text-to-speech and speech-to-text among others.
+
+
+
+![preferences mockup](post3.assets/image-20210816142524492.png)
+
+
+
+## Functionality
+
+
+
+#### Conversation
+
+This is the main part. The app needs to get and send conversation data to the old conversational agent. 
+
+
+
+![communicator](post3.assets/communicator.png)
+
+Conversational agent knows when to start and stop conversation. When the app detects that a conversation needs to be started, it sends a request to RASA server, to start a conversation. RASA server responds with a response to the sent message.
+
+
+
+#### Chat
+
+The chat service keeps listening for start chat event. Once the event is received, it starts using the communicator module to send and receive messages. It also acknowledges various chat settings enforced by other modules, and uses correct channels to process this data.
+
+
+
+![chatservice](post3.assets/chatservice-9118820.png)
+
+#### Text to speech
+
+Accepts textual input, reads settings, and provides appropriate output.
+
+
+
+![tts](post3.assets/tts.png)
+
+
+
+#### Speech to text
+
+Accepts voice input, reads settings and provides appropriate output.
+
+
+
+![stt](../../../../Google%20Drive/t9/gsoc/wireframes/stt.png)
+
