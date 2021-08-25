@@ -25,7 +25,7 @@ initialiseApp();
 ChatData.init();
 Speaker.init();
 ASR.init();
-
+setTimeout(function(){Speaker.updateUI()}, 500);
 function startChatButton() {
     logv('starting chat');
     ChatData.startChat().then(function(res){
@@ -42,6 +42,7 @@ function sendMessage(textBox) {
         ChatData.sendChatMessage(textBox.value);
         logv(`entered message: ${textBox.value}`);
         textBox.value = "";
+        ASR.currentString = "";
     }
 }
 

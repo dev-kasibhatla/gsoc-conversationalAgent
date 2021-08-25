@@ -89,9 +89,8 @@
 
     <!-- Actual content area -->
     <div class="chat-box">
-        <div class="" id="interactBody">
-            Interact
-        </div>
+
+        <webview id="interactBody" class="interact-body interact-webview" src="http://localhost:5002/login?username=me&password=NZZqZuI49ZVj"></webview>
         <div class="interaction-shell-output" id="interactShell">
             Shell
         </div>
@@ -101,12 +100,12 @@
             </div>
 
             <div class="rasa-buttons text-center" onclick="stopInteraction()">
-                Stop Interaction without saving
+                Stop Interaction
             </div>
 
-            <div class="rasa-buttons text-center" onclick="">
+            <!--<div class="rasa-buttons text-center" onclick="">
                 Save and stop
-            </div>
+            </div>-->
         </div>
 
     </div>

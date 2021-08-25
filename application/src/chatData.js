@@ -50,6 +50,7 @@ class ChatData {
     }
 
     static insertStartChatButton() {
+        return;
         logv(`chat begun: ${this.chatBegun}`);
         document.getElementById(START_BUTTON_SPACE).innerHTML="";
         if(this.chatBegun) {
@@ -138,8 +139,8 @@ class ChatData {
                 for (let mess of response.body){
                     let message = new Message(SENDER_BOT,mess);
                     this.addNewMessage(message);
-                    Speaker.speak(message);
-                }
+                    Speaker.speak(message.message);
+                }f
             }else{
                 //construct a message
                 let message = new Message(SENDER_UNKNOWN,"No response received");
@@ -175,7 +176,7 @@ class ChatData {
             if(messageCount>0){
                 for (let mess of response.body){
                     let message = new Message(SENDER_BOT,mess);
-                    Speaker.speak(message);
+                    Speaker.speak(message.message);
                     this.addNewMessage(message);
                 }
             }else{
@@ -279,6 +280,7 @@ class Speaker {
         Speaker.updateUI();
         Speaker.isMimicInstalled();
         Speaker.loadSettings();
+        // Speaker.updateUI();
     }
 
     static initFromSettings() {

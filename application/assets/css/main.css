@@ -32,6 +32,7 @@ body {
     /* padding: 0px; */
     margin: 0px;
     height: 100vh;
+    overflow: hidden;
 }
 
 .scene-title-box {
@@ -619,6 +620,11 @@ body {
 .top-nav-text {
 }
 
+.interact-webview {
+    width: 100%;
+    height: 100%;
+}
+
 .dont-display {
     display: none;
 }
@@ -628,4 +634,8 @@ body {
     border-radius: 8px;
     background-color: var(--light-bright);
     padding: 8px 8px;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }

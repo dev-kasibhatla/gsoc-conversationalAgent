@@ -28,6 +28,8 @@ class RasaInteractiveHandler {
     static interactionInProgress= false;
     static interactionPid = 0;
 
+    static url = "";
+
     static shellHistory = "";
 
     static interactBody = "";
@@ -50,6 +52,7 @@ class RasaInteractiveHandler {
         }
         document.getElementById(topNavIds[RasaInteractiveHandler.CURRENT_TAB]).classList.add('top-nav-selected');
         document.getElementById(bodyIds[RasaInteractiveHandler.CURRENT_TAB]).classList.remove('dont-display');
+        document.getElementById(bodyInteract).src = RasaInteractiveHandler.url;
 
         if(!RasaInteractiveHandler.interactionInProgress) {
 
@@ -65,7 +68,7 @@ class RasaInteractiveHandler {
         logv('fetched app state:');
         logv(RasaInteractiveHandler.appState);
         logv(typeof this.appState);
-        RasaInteractiveHandler.appState.cproc = RasaInteractiveHandler.cproc;
+        // RasaInteractiveHandler.appState.cproc = RasaInteractiveHandler.cproc;
         RasaInteractiveHandler.appState.interactionInProgress = RasaInteractiveHandler.interactionInProgress;
         RasaInteractiveHandler.appState.interactionPid = RasaInteractiveHandler.interactionPid;
         RasaInteractiveHandler.appState.interactionTab = RasaInteractiveHandler.CURRENT_TAB;
@@ -80,11 +83,15 @@ class RasaInteractiveHandler {
         AppState.getChatState();
         logv('fetched app state:');
         logv(RasaInteractiveHandler.appState);
-        RasaInteractiveHandler.cproc =RasaInteractiveHandler.appState.cproc;
+        // RasaInteractiveHandler.cproc =RasaInteractiveHandler.appState.cproc;
         RasaInteractiveHandler.interactionInProgress = RasaInteractiveHandler.appState.interactionInProgress;
         RasaInteractiveHandler.interactionPid = RasaInteractiveHandler.appState.interactionPid;
         RasaInteractiveHandler.CURRENT_TAB = RasaInteractiveHandler.appState.interactionTab;
-        if(RasaInteractiveHandler.cproc === undefined){
+        /*if(RasaInteractiveHandler.cproc === undefined){
+            RasaInteractiveHandler.interactionPid=0;
+            RasaInteractiveHandler.interactionInProgress=false;
+        }*/
+        if(RasaInteractiveHandler.interactionPid === undefined) {
             RasaInteractiveHandler.interactionPid=0;
             RasaInteractiveHandler.interactionInProgress=false;
         }
@@ -141,19 +148,30 @@ class RasaInteractiveHandler {
         RasaInteractiveHandler.cproc.on('data', (data)=> {
            logv('rasa interactive message:');
            RasaInteractiveHandler.shellHistory += data;
+           RasaInteractiveHandler.updateUI();
            logv(data);
         });
 
         RasaInteractiveHandler.cproc.stdout.on('data', (data)=> {
-            logv('rasa interactive error:');
+            logv('rasa interactive stdout:');
+            if(data.includes('http://localhost:5002')){
+                logv('found link');
+                let link = data.split("running at ")[1].split('\n')[0];
+                logv('link:');
+                logv(link);
+                document.getElementById(bodyInteract).src = link;
+                RasaInteractiveHandler.url = link;
+            }
+            logv(data);
             RasaInteractiveHandler.shellHistory += data;
+            RasaInteractiveHandler.updateUI();
             logv(data);
         });
 
         RasaInteractiveHandler.cproc.stderr.on('data', (data)=> {
             logv('rasa interactive error:');
             RasaInteractiveHandler.shellHistory += data;
-            logv(data);
+            RasaInteractiveHandler.updateUI();
         });
 
         RasaInteractiveHandler.cproc.on('exit', (data)=> {
