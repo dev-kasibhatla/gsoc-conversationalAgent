@@ -1,4 +1,4 @@
-/home/robocomp/Desktop/conversationalAgent
+/home/robocomp/robocomp/components/robocomp-viriato/components/conversationalAgent
 ├── chatbot
 │   ├── actions
 │   │   ├── actions.py
