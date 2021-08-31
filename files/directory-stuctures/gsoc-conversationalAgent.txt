@@ -1,0 +1,107 @@
+/home/robocomp/gsoc-conversationalAgent
+├── application
+│   ├── assets
+│   │   ├── css
+│   │   │   └── main.css
+│   │   └── svgs
+│   │       ├── asr-icon.svg
+│   │       ├── info.svg
+│   │       ├── mic.svg
+│   │       ├── nav-chat.svg
+│   │       ├── nav-close.svg
+│   │       ├── nav-diagnostics.svg
+│   │       ├── nav-ham.svg
+│   │       ├── nav-help.svg
+│   │       ├── nav-rasa.svg
+│   │       ├── nav-settings.svg
+│   │       ├── play.svg
+│   │       └── tts-icon.svg
+│   ├── bash
+│   │   ├── asr
+│   │   │   ├── pytestcom.py
+│   │   │   └── startasr.bash
+│   │   ├── checkvosk.py
+│   │   ├── getRasaStatus.bash
+│   │   ├── getRasaStatus.py
+│   │   ├── interactive
+│   │   │   └── start.bash
+│   │   ├── killAction.bash
+│   │   ├── killRasa.bash
+│   │   ├── rasaButtons
+│   │   │   ├── rasaTrain.bash
+│   │   │   ├── startRasaInteractive.bash
+│   │   │   ├── startRasaShell.bash
+│   │   │   └── startRasaVisualise.bash
+│   │   ├── runConAgent.bash
+│   │   ├── startActions.bash
+│   │   └── startRasa.bash
+│   ├── main.js
+│   ├── npm-debug.log
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── settings
+│   │   └── speech
+│   └── src
+│       ├── chatData.js
+│       ├── comm.js
+│       ├── common.js
+│       ├── deepspeech.js
+│       ├── diagnostics.html
+│       ├── diagnostics.js
+│       ├── index.html
+│       ├── index.js
+│       ├── interactiveHandler.js
+│       ├── main.js
+│       ├── nav.js
+│       ├── preload.js
+│       ├── rasaHandler.js
+│       ├── rasainteractive.html
+│       ├── rasaInteractive.js
+│       ├── renderer.js
+│       ├── settings.html
+│       └── settings.js
+├── files
+│   ├── directory-stuctures
+│   │   ├── conversationalAgent.txt
+│   │   ├── gsoc-conversationalAgent.txt
+│   │   ├── readme.md
+│   │   └── vosk-api.txt
+│   ├── genericworker.py
+│   ├── genericworker.py.old
+│   ├── readme.md
+│   ├── specificworker2.py
+│   └── specificworker.py
+├── install-mimic.sh
+├── mockups
+│   ├── chat+tts+asr.png
+│   ├── chat+tts.png
+│   ├── nav.png
+│   └── preferences.png
+├── posts
+│   ├── post1.md
+│   ├── post2.assets
+│   │   ├── 054.png
+│   │   ├── 055.png
+│   │   ├── 056.png
+│   │   ├── image-mission.png
+│   │   ├── old-chat.png
+│   │   └── viriato-structure.png
+│   ├── post2.md
+│   ├── post3.assets
+│   │   ├── chatservice-9118820.png
+│   │   ├── chatservice.png
+│   │   ├── chat+tts.png
+│   │   ├── communicator.png
+│   │   ├── image-1562742442995-6474e4cf4325101c9b5656e36ca84658.png
+│   │   ├── image-20210816142524492.png
+│   │   ├── nav.png
+│   │   ├── Screen-Shot-2020-06-25-at-2.45.44-PM-1024x652.png
+│   │   ├── stt.png
+│   │   └── tts.png
+│   ├── post3.md
+│   └── post4.md
+├── README.md
+└── requests
+    └── request-collection.json
+
+17 directories, 87 files

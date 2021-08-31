@@ -1,0 +1,217 @@
+/home/robocomp/vosk-api
+├── android
+│   ├── build.gradle
+│   ├── lib
+│   │   ├── build.gradle
+│   │   ├── build-vosk.sh
+│   │   ├── settings.gradle
+│   │   └── src
+│   │       └── main
+│   │           ├── AndroidManifest.xml
+│   │           ├── java
+│   │           │   └── org
+│   │           │       └── vosk
+│   │           │           ├── android
+│   │           │           │   ├── RecognitionListener.java
+│   │           │           │   ├── SpeechService.java
+│   │           │           │   ├── SpeechStreamService.java
+│   │           │           │   └── StorageService.java
+│   │           │           ├── LibVosk.java
+│   │           │           ├── LogLevel.java
+│   │           │           ├── Model.java
+│   │           │           ├── Recognizer.java
+│   │           │           └── SpeakerModel.java
+│   │           └── jniLibs
+│   │               ├── arm64-v8a
+│   │               ├── armeabi-v7a
+│   │               ├── x86
+│   │               └── x86_64
+│   ├── model-en
+│   │   ├── build.gradle
+│   │   └── src
+│   │       └── main
+│   │           ├── AndroidManifest.xml
+│   │           └── assets
+│   │               └── model-en-us
+│   │                   └── README
+│   ├── README.md
+│   └── settings.gradle
+├── c
+│   ├── Makefile
+│   ├── test_vosk.c
+│   └── test_vosk_speaker.c
+├── COPYING
+├── csharp
+│   ├── demo
+│   │   ├── VoskDemo.cs
+│   │   └── VoskDemo.csproj
+│   ├── nuget
+│   │   ├── build
+│   │   │   ├── lib
+│   │   │   │   ├── linux-x64
+│   │   │   │   ├── osx-x64
+│   │   │   │   └── win-x64
+│   │   │   └── Vosk.targets
+│   │   ├── build.sh
+│   │   ├── lib
+│   │   │   └── netstandard2.0
+│   │   ├── src
+│   │   │   ├── Model.cs
+│   │   │   ├── SpkModel.cs
+│   │   │   ├── Vosk.cs
+│   │   │   ├── VoskPINVOKE.cs
+│   │   │   └── VoskRecognizer.cs
+│   │   └── Vosk.nuspec
+│   └── README.md
+├── go
+│   ├── COPYING
+│   ├── doc.go
+│   ├── example
+│   │   ├── doc.go
+│   │   └── test_simple.go
+│   ├── go.mod
+│   └── vosk.go
+├── ios
+│   ├── README
+│   ├── VoskApiTest
+│   │   ├── AppDelegate.swift
+│   │   ├── Assets.xcassets
+│   │   │   └── AppIcon.appiconset
+│   │   │       └── Contents.json
+│   │   ├── Base.lproj
+│   │   │   ├── LaunchScreen.storyboard
+│   │   │   └── Main.storyboard
+│   │   ├── bridging.h
+│   │   ├── Info.plist
+│   │   ├── ViewController.swift
+│   │   ├── Vosk
+│   │   │   └── vosk_api.h
+│   │   ├── VoskModel.swift
+│   │   └── Vosk.swift
+│   └── VoskApiTest.xcodeproj
+│       ├── project.pbxproj
+│       └── project.xcworkspace
+│           └── contents.xcworkspacedata
+├── java
+│   ├── demo
+│   │   ├── build.gradle
+│   │   └── src
+│   │       └── main
+│   │           └── java
+│   │               └── org
+│   │                   └── vosk
+│   │                       └── demo
+│   │                           └── DecoderDemo.java
+│   ├── lib
+│   │   ├── build.gradle
+│   │   └── src
+│   │       ├── main
+│   │       │   ├── java
+│   │       │   │   └── org
+│   │       │   │       └── vosk
+│   │       │   │           ├── LibVosk.java
+│   │       │   │           ├── LogLevel.java
+│   │       │   │           ├── Model.java
+│   │       │   │           ├── Recognizer.java
+│   │       │   │           └── SpeakerModel.java
+│   │       │   └── resources
+│   │       │       ├── darwin
+│   │       │       ├── linux-x86-64
+│   │       │       └── win32-x86-64
+│   │       │           └── empty
+│   │       └── test
+│   │           └── java
+│   │               └── org
+│   │                   └── vosk
+│   │                       └── test
+│   │                           └── DecoderTest.java
+│   └── README.md
+├── nodejs
+│   ├── demo
+│   │   ├── test_ffmpeg.js
+│   │   ├── test_microphone.js
+│   │   ├── test_simple_async.js
+│   │   ├── test_simple.js
+│   │   ├── test_speaker.js
+│   │   └── test_srt.js
+│   ├── index.js
+│   ├── package.json
+│   └── README.md
+├── python
+│   ├── example
+│   │   ├── hi2.wav
+│   │   ├── model
+│   │   │   ├── am
+│   │   │   │   └── final.mdl
+│   │   │   ├── conf
+│   │   │   │   ├── mfcc.conf
+│   │   │   │   └── model.conf
+│   │   │   ├── graph
+│   │   │   │   ├── disambig_tid.int
+│   │   │   │   ├── Gr.fst
+│   │   │   │   ├── HCLr.fst
+│   │   │   │   └── phones
+│   │   │   │       └── word_boundary.int
+│   │   │   ├── ivector
+│   │   │   │   ├── final.dubm
+│   │   │   │   ├── final.ie
+│   │   │   │   ├── final.mat
+│   │   │   │   ├── global_cmvn.stats
+│   │   │   │   ├── online_cmvn.conf
+│   │   │   │   └── splice.conf
+│   │   │   └── README
+│   │   ├── shouldExit
+│   │   ├── test_alternatives.py
+│   │   ├── test_empty.py
+│   │   ├── test_ffmpeg.py
+│   │   ├── test_mic2.py
+│   │   ├── test_microphone.py
+│   │   ├── test_reset.py
+│   │   ├── test_simple.py
+│   │   ├── test_speaker.py
+│   │   ├── test_srt.py
+│   │   ├── test_text.py
+│   │   ├── test.wav
+│   │   ├── test_webvtt.py
+│   │   ├── test_words.py
+│   │   ├── vosk-model-en-us-0.20.zip
+│   │   └── vosk-model-small-en-us-0.15.zip
+│   ├── README.md
+│   ├── setup.py
+│   ├── test
+│   │   └── transcribe_scp.py
+│   ├── vosk
+│   │   └── __init__.py
+│   └── vosk_builder.py
+├── README.md
+├── src
+│   ├── json.h
+│   ├── kaldi_recognizer.cc
+│   ├── kaldi_recognizer.h
+│   ├── language_model.cc
+│   ├── language_model.h
+│   ├── Makefile
+│   ├── model.cc
+│   ├── model.h
+│   ├── spk_model.cc
+│   ├── spk_model.h
+│   ├── vosk_api.cc
+│   └── vosk_api.h
+├── travis
+│   ├── build-dockcross.sh
+│   ├── build-docker.sh
+│   ├── build-docker-win32.sh
+│   ├── build-docker-win.sh
+│   ├── build-wheels-dockcross.sh
+│   ├── build-wheels.sh
+│   ├── build-wheels-win32.sh
+│   ├── build-wheels-win.sh
+│   ├── Dockerfile.dockcross
+│   ├── Dockerfile.manylinux
+│   ├── Dockerfile.win
+│   └── Dockerfile.win32
+└── webjs
+    ├── index.js
+    └── package.json
+
+78 directories, 136 files

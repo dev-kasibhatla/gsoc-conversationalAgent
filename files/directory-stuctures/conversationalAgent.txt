@@ -1,0 +1,366 @@
+/home/robocomp/Desktop/conversationalAgent
+├── chatbot
+│   ├── actions
+│   │   ├── actions.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── actions.cpython-36.pyc
+│   │       └── __init__.cpython-36.pyc
+│   ├── config.yml
+│   ├── config.yml.bak
+│   ├── credentials.yml
+│   ├── data
+│   │   ├── nlu.yml
+│   │   ├── storiesSituation2.yml
+│   │   ├── storiesSituation3.yml
+│   │   ├── storiesSituation4.yml
+│   │   └── stories.yml
+│   ├── domain.yml
+│   ├── domin_with_genders.yml
+│   ├── endpoints.yml
+│   ├── events.db
+│   ├── events.db-shm
+│   ├── events.db-wal
+│   ├── graph.html
+│   ├── __init__.py
+│   ├── models
+│   │   └── 20210815-120951.tar.gz
+│   ├── models.old
+│   │   ├── 20200814-022259.tar.gz
+│   │   ├── 20200820-155729.tar.gz
+│   │   ├── 20200825-152044.tar.gz
+│   │   ├── 20200828-034117.tar.gz
+│   │   ├── 20200828-093253.tar.gz
+│   │   ├── 20200828-095109.tar.gz
+│   │   ├── 20200828-095800.tar.gz
+│   │   ├── 20200828-102809.tar.gz
+│   │   ├── 20200828-103324.tar.gz
+│   │   ├── 20200828-111555.tar.gz
+│   │   ├── 20200828-114421.tar.gz
+│   │   ├── 20200828-115446.tar.gz
+│   │   ├── 20200828-115825.tar.gz
+│   │   ├── 20200828-122315.tar.gz
+│   │   ├── 20200828-123628.tar.gz
+│   │   ├── 20200828-131855.tar.gz
+│   │   ├── 20200828-224216.tar.gz
+│   │   ├── 20200829-034631.tar.gz
+│   │   ├── 20200829-061930.tar.gz
+│   │   ├── 20200829-103034.tar.gz
+│   │   ├── 20200911-001419.tar.gz
+│   │   ├── 20201013-120651.tar.gz
+│   │   ├── 20201013-170141.tar.gz
+│   │   ├── 20201014-172659.tar.gz
+│   │   ├── 20201023-010936.tar.gz
+│   │   ├── 20201023-114855.tar.gz
+│   │   ├── 20201023-150004.tar.gz
+│   │   ├── 20201023-180927.tar.gz
+│   │   ├── 20201024-144231.tar.gz
+│   │   ├── 20201026-134338.tar.gz
+│   │   ├── 20201027-135807.tar.gz
+│   │   ├── 20201106-132703.tar.gz
+│   │   ├── 20210408-193428.tar.gz
+│   │   ├── 20210408-193801.tar.gz
+│   │   ├── 20210808-162928.tar.gz
+│   │   ├── 20210808-163312.tar.gz
+│   │   ├── 20210808-165536.tar.gz
+│   │   ├── 20210808-170507.tar.gz
+│   │   ├── 20210808-171128.tar.gz
+│   │   ├── 20210808-171408.tar.gz
+│   │   ├── 20210814-165033.tar.gz
+│   │   ├── 20210814-205601.tar.gz
+│   │   ├── 20210814-211033.tar.gz
+│   │   ├── 20210815-053246.tar.gz
+│   │   ├── nlu-20200820-154406.tar.gz
+│   │   ├── nlu-20200825-151920.tar.gz
+│   │   └── nlu-20200828-131613.tar.gz
+│   ├── person_attributes.json
+│   ├── __pycache__
+│   │   ├── actions.cpython-36.pyc
+│   │   └── __init__.cpython-36.pyc
+│   ├── rasa_conversation.json
+│   ├── rasa.db
+│   ├── results
+│   │   ├── confmat.png
+│   │   ├── failed_stories.md
+│   │   ├── hist.png
+│   │   ├── intent_errors.json
+│   │   ├── intent_report.json
+│   │   └── story_confmat.pdf
+│   └── story_graph.dot
+├── CMakeCache.txt
+├── CMakeFiles
+│   ├── 3.18.0
+│   │   ├── CMakeCCompiler.cmake
+│   │   ├── CMakeCXXCompiler.cmake
+│   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│   │   ├── CMakeSystem.cmake
+│   │   ├── CompilerIdC
+│   │   │   ├── a.out
+│   │   │   ├── CMakeCCompilerId.c
+│   │   │   └── tmp
+│   │   └── CompilerIdCXX
+│   │       ├── a.out
+│   │       ├── CMakeCXXCompilerId.cpp
+│   │       └── tmp
+│   ├── cmake.check_cache
+│   ├── CMakeDirectoryInformation.cmake
+│   ├── CMakeOutput.log
+│   ├── CMakeRuleHashes.txt
+│   ├── CMakeTmp
+│   ├── Makefile2
+│   ├── Makefile.cmake
+│   ├── progress.marks
+│   ├── TargetDirectories.txt
+│   └── ui_mainUI.dir
+│       ├── build.make
+│       ├── cmake_clean.cmake
+│       ├── DependInfo.cmake
+│       ├── depend.internal
+│       ├── depend.make
+│       └── progress.make
+├── cmake_install.cmake
+├── CMakeLists.txt
+├── configuration_files
+│   ├── conversationalAgent.conf
+│   ├── deployment_GSoC_conversationalAgent.xml
+│   ├── executive_GSoC_conversationalAgent.conf
+│   ├── humanObserverAgent_GUI.conf
+│   ├── mission_GSoC_conversationalAgent.conf
+│   ├── navigation_usecases.aggl
+│   ├── path_blocked.aggt
+│   └── targetModelGSoC-none.aggt
+├── convagent.bak
+│   ├── chatbot
+│   │   ├── actions.py
+│   │   ├── config.yml
+│   │   ├── config.yml.bak
+│   │   ├── credentials.yml
+│   │   ├── data
+│   │   │   ├── nlu.md
+│   │   │   ├── stories.md
+│   │   │   ├── stories situation 2.md
+│   │   │   ├── stories situation 3.md
+│   │   │   └── stories situation 4.md
+│   │   ├── domain.yml
+│   │   ├── domin_with_genders.yml
+│   │   ├── endpoints.yml
+│   │   ├── events.db
+│   │   ├── graph.html
+│   │   ├── __init__.py
+│   │   ├── models
+│   │   │   ├── 20200814-022259.tar.gz
+│   │   │   ├── 20200820-155729.tar.gz
+│   │   │   ├── 20200825-152044.tar.gz
+│   │   │   ├── 20200828-034117.tar.gz
+│   │   │   ├── 20200828-093253.tar.gz
+│   │   │   ├── 20200828-095109.tar.gz
+│   │   │   ├── 20200828-095800.tar.gz
+│   │   │   ├── 20200828-102809.tar.gz
+│   │   │   ├── 20200828-103324.tar.gz
+│   │   │   ├── 20200828-111555.tar.gz
+│   │   │   ├── 20200828-114421.tar.gz
+│   │   │   ├── 20200828-115446.tar.gz
+│   │   │   ├── 20200828-115825.tar.gz
+│   │   │   ├── 20200828-122315.tar.gz
+│   │   │   ├── 20200828-123628.tar.gz
+│   │   │   ├── 20200828-131855.tar.gz
+│   │   │   ├── 20200828-224216.tar.gz
+│   │   │   ├── 20200829-034631.tar.gz
+│   │   │   ├── 20200829-061930.tar.gz
+│   │   │   ├── 20200829-103034.tar.gz
+│   │   │   ├── 20200911-001419.tar.gz
+│   │   │   ├── 20201013-120651.tar.gz
+│   │   │   ├── 20201013-170141.tar.gz
+│   │   │   ├── 20201014-172659.tar.gz
+│   │   │   ├── 20201023-114855.tar.gz
+│   │   │   ├── 20210408-193428.tar.gz
+│   │   │   ├── 20210408-193801.tar.gz
+│   │   │   ├── 20210808-162928.tar.gz
+│   │   │   ├── 20210808-163312.tar.gz
+│   │   │   ├── 20210808-165536.tar.gz
+│   │   │   ├── 20210808-170507.tar.gz
+│   │   │   ├── 20210808-171128.tar.gz
+│   │   │   ├── 20210808-171408.tar.gz
+│   │   │   ├── 20210814-165033.tar.gz
+│   │   │   ├── 20210814-205601.tar.gz
+│   │   │   ├── 20210814-211033.tar.gz
+│   │   │   ├── nlu-20200820-154406.tar.gz
+│   │   │   ├── nlu-20200825-151920.tar.gz
+│   │   │   └── nlu-20200828-131613.tar.gz
+│   │   ├── person_attributes.json
+│   │   ├── __pycache__
+│   │   │   ├── actions.cpython-36.pyc
+│   │   │   └── __init__.cpython-36.pyc
+│   │   ├── rasa_conversation.json
+│   │   ├── rasa.db
+│   │   ├── results
+│   │   │   ├── confmat.png
+│   │   │   ├── failed_stories.md
+│   │   │   ├── hist.png
+│   │   │   ├── intent_errors.json
+│   │   │   ├── intent_report.json
+│   │   │   └── story_confmat.pdf
+│   │   └── story_graph.dot
+│   ├── CMakeCache.txt
+│   ├── CMakeFiles
+│   │   ├── 3.18.0
+│   │   │   ├── CMakeCCompiler.cmake
+│   │   │   ├── CMakeCXXCompiler.cmake
+│   │   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│   │   │   ├── CMakeSystem.cmake
+│   │   │   ├── CompilerIdC
+│   │   │   │   ├── a.out
+│   │   │   │   ├── CMakeCCompilerId.c
+│   │   │   │   └── tmp
+│   │   │   └── CompilerIdCXX
+│   │   │       ├── a.out
+│   │   │       ├── CMakeCXXCompilerId.cpp
+│   │   │       └── tmp
+│   │   ├── cmake.check_cache
+│   │   ├── CMakeDirectoryInformation.cmake
+│   │   ├── CMakeOutput.log
+│   │   ├── CMakeRuleHashes.txt
+│   │   ├── CMakeTmp
+│   │   ├── Makefile2
+│   │   ├── Makefile.cmake
+│   │   ├── progress.marks
+│   │   ├── TargetDirectories.txt
+│   │   └── ui_mainUI.dir
+│   │       ├── build.make
+│   │       ├── cmake_clean.cmake
+│   │       ├── DependInfo.cmake
+│   │       ├── depend.internal
+│   │       ├── depend.make
+│   │       └── progress.make
+│   ├── cmake_install.cmake
+│   ├── CMakeLists.txt
+│   ├── configuration_files
+│   │   ├── conversationalAgent.conf
+│   │   ├── deployment_GSoC_conversationalAgent.xml
+│   │   ├── executive_GSoC_conversationalAgent.conf
+│   │   ├── humanObserverAgent_GUI.conf
+│   │   ├── mission_GSoC_conversationalAgent.conf
+│   │   ├── navigation_usecases.aggl
+│   │   ├── path_blocked.aggt
+│   │   └── targetModelGSoC-none.aggt
+│   ├── conversationalAgent.cdsl
+│   ├── DoxyFile
+│   ├── etc
+│   │   └── config
+│   ├── instDep.sh
+│   ├── Makefile
+│   ├── newUiConnection.txt
+│   ├── output.wav
+│   ├── README.md
+│   ├── README-RCNODE.txt
+│   └── src
+│       ├── AGGL.py
+│       ├── AGMCommonBehavior.ice
+│       ├── agmcommonbehaviorI.py
+│       ├── AGMExecutive.ice
+│       ├── AGMExecutiveTopic.ice
+│       ├── agmexecutivetopicI.py
+│       ├── AGMModelConversion.py
+│       ├── AGMWorldModel.ice
+│       ├── chatbotUI.ui
+│       ├── CMakeFiles
+│       │   ├── CMakeDirectoryInformation.cmake
+│       │   ├── ICES__home_rishi_robocomp_components_robocomp-viriato_components_conversationalAgent_src.dir
+│       │   │   ├── build.make
+│       │   │   ├── cmake_clean.cmake
+│       │   │   ├── DependInfo.cmake
+│       │   │   ├── depend.internal
+│       │   │   ├── depend.make
+│       │   │   └── progress.make
+│       │   └── progress.marks
+│       ├── cmake_install.cmake
+│       ├── CMakeLists.txt
+│       ├── CommonBehavior.ice
+│       ├── conversationalAgent.py
+│       ├── GenericBase.ice
+│       ├── genericworker.py
+│       ├── InnerModelManager.ice
+│       ├── Laser.ice
+│       ├── mainUI.ui
+│       ├── Makefile
+│       ├── OmniRobot.ice
+│       ├── Planning.ice
+│       ├── __pycache__
+│       │   ├── AGGL.cpython-36.pyc
+│       │   ├── agmcommonbehaviorI.cpython-36.pyc
+│       │   ├── agmexecutivetopicI.cpython-36.pyc
+│       │   ├── AGMModelConversion.cpython-36.pyc
+│       │   ├── genericworker.cpython-36.pyc
+│       │   ├── specificworker.cpython-36.pyc
+│       │   ├── ui_chatbotUI.cpython-36.pyc
+│       │   ├── ui_mainUI.cpython-36.pyc
+│       │   └── ui_rasaUI.cpython-36.pyc
+│       ├── rasaUI.ui
+│       ├── specificworker2.py
+│       ├── specificworker.py
+│       ├── ui_chatbotUI.py
+│       ├── ui_mainUI.py
+│       └── ui_rasaUI.py
+├── conversationalAgent.cdsl
+├── DoxyFile
+├── etc
+│   └── config
+├── instDep.sh
+├── Makefile
+├── newUiConnection.txt
+├── output.wav
+├── README.md
+├── README-RCNODE.txt
+└── src
+    ├── AGGL.py
+    ├── AGMCommonBehavior.ice
+    ├── agmcommonbehaviorI.py
+    ├── AGMExecutive.ice
+    ├── AGMExecutiveTopic.ice
+    ├── agmexecutivetopicI.py
+    ├── AGMModelConversion.py
+    ├── AGMWorldModel.ice
+    ├── chatbotUI.ui
+    ├── CMakeFiles
+    │   ├── CMakeDirectoryInformation.cmake
+    │   ├── ICES__home_rishi_robocomp_components_robocomp-viriato_components_conversationalAgent_src.dir
+    │   │   ├── build.make
+    │   │   ├── cmake_clean.cmake
+    │   │   ├── DependInfo.cmake
+    │   │   ├── depend.internal
+    │   │   ├── depend.make
+    │   │   └── progress.make
+    │   └── progress.marks
+    ├── cmake_install.cmake
+    ├── CMakeLists.txt
+    ├── CommonBehavior.ice
+    ├── conversationalAgent.py
+    ├── GenericBase.ice
+    ├── genericworker.py
+    ├── genericworker.py.old
+    ├── InnerModelManager.ice
+    ├── Laser.ice
+    ├── mainUI.ui
+    ├── Makefile
+    ├── OmniRobot.ice
+    ├── Planning.ice
+    ├── __pycache__
+    │   ├── AGGL.cpython-36.pyc
+    │   ├── agmcommonbehaviorI.cpython-36.pyc
+    │   ├── agmexecutivetopicI.cpython-36.pyc
+    │   ├── AGMModelConversion.cpython-36.pyc
+    │   ├── genericworker.cpython-36.pyc
+    │   ├── specificworker.cpython-36.pyc
+    │   ├── ui_chatbotUI.cpython-36.pyc
+    │   ├── ui_mainUI.cpython-36.pyc
+    │   └── ui_rasaUI.cpython-36.pyc
+    ├── rasaUI.ui
+    ├── specificworker2.py
+    ├── specificworker.py
+    ├── ui_chatbotUI.py
+    ├── ui_mainUI.py
+    └── ui_rasaUI.py
+
+42 directories, 321 files
