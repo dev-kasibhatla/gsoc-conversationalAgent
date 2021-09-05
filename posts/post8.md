@@ -51,3 +51,20 @@ I had to train the model again 😭. 5 hours later, rasa x gave problems that lo
 For one final problem, rasa x couldn't initialise due to errors with `sanic`. So I tried looking up and updated to a compatible version of sanic, but this didn't solve the problem. Thankfully someone had the exact same problem 1 day ago!
 They solved it by installing `sanic-jwt` package. My problem was solved by doing the same thing, and finally, rasa x worked.
 
+![042](post8.assets/042.png)
+
+Fig: RASA X in browser
+
+
+
+![041](post8.assets/041.png)
+
+Fig: RASA X in browser
+
+![090](post8.assets/090.png)
+
+Fig: RASA X shell output embedded in conversational agent
+
+![91](post8.assets/91.png)
+
+Fig: RASA X embedded in conversational agent

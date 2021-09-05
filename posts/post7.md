@@ -134,9 +134,25 @@ To make vosk-api work with the conversational agent:
 
 In `~/.bashrc`:
 
-Set the variable $VOSK.
+Set the variable $VOSK. Vosk root in my installation located at `~/vosk-api/`.
 
-For example:
+```bash
+export VOSK=$HOME/vosk-api
+```
+
+To check if the variable is set:
+
+```bash
+echo $VOSK
+```
+
+To update variables in the current shell (to check soon after you edit `~/.bashrc`):
+
+```bash
+source ~/.bashrc
+```
+
+
 
 
 
@@ -144,7 +160,7 @@ From this project's repository folder:
 
 Copy `files/test_mic2.py` 
 
-To  `$VOSK/python/example/test_mic2.py`:
+To  `$VOSK/python/example/test_mic2.py`
 
 
 
@@ -327,15 +343,33 @@ So I had to make a small change to the script.
 
 In `$VOSK/python/example/test_mic2.py`:
 
-
+```python
+if rec.AcceptWaveform(data):
+    print(rec.Result())
+    sys.stdout.flush() #added flush
+else:
+    print(rec.PartialResult())
+    sys.stdout.flush() #added flush
+```
 
 As indicated in the second post, communication with a process proved to be a little tricky. Using streams worked. I created a new stream and assigned it to `STDIN`. Writing to this stream and then pushing successfully writes to the process. This works well when the process is listening to `STDIN` input. But no amount of flushing `SIGTERM` and `SIGINT` actually killed the process for me.
 
 So again, I had to cheat a little. To kill the process I would write `0` to `$VOSK/python/example/shouldExit` file. Then a small change in `$VOSK/python/example/test_mic2.py`:
 
+```python
+import os.path
+#check for exit
 
+if os.path.exists('shouldExit'):
+    file = open('shouldExit','r')
+    if ("1" in file.read()):
+        print('exiting')
+        exit()
+    else:
+        print('file doesnt exist, program cant terminate')
+```
 
-This worked just fine, and the ASR would properly exit.
+The file is created by the app when it needs to stop ASR. This worked just fine, and the ASR would properly exit.
 
 
 
